@@ -1,10 +1,10 @@
-import React from 'react';
-import {shallow} from 'enzyme';
+import React from "react";
+import {shallow} from "enzyme";
 
-import AppRoot from './app-root';
+import AppRoot from "./app-root";
 
-describe('AppRoot', () => {
-  it('Should render', () => {
-    shallow(<AppRoot/>).should.exist;
+describe("AppRoot", () => {
+  it("Should render", () => {
+    shallow(<AppRoot />).should.exist;
   });
 });

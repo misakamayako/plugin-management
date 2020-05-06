@@ -1,33 +1,27 @@
 import React from "react";
 import RedBox from "redbox-react";
 
-import {BrowserRouter as Router, Route} from "react-router-dom"
+
 import {render} from "react-dom";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
+import Route from "../../router";
+
 
 import store from "../../redux";
 
-import AppRoot from "./app-root";
 import "./app.css";
+import "normalize.css";
 
 const appEl = document.querySelector(".app-root");
 const rootEl = document.createElement("div");
 
+rootEl.style.height = "100%";
 let renderApp = () => {
   render(
     <Provider store={createStore(store)}>
-      <Router>
-        <Route
-          path="/"
-          render={() => (
-            <AppRoot>
-              <div>{"d"}</div>
-            </AppRoot>
-          )}
-        />
-      </Router>
+      <Route />
     </Provider>,
     rootEl
   );

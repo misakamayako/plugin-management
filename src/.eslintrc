@@ -1,29 +1,45 @@
 {
-  "parser": "babel-eslint",
-  "root": true,
-  "extends": [
-    "@jetbrains",
-    "@jetbrains/eslint-config/es6",
-    "@jetbrains/eslint-config/browser",
-    "@jetbrains/eslint-config/react",
-    "@jetbrains/eslint-config/test"
-  ],
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "consistent-return": "off",
-    "no-return-assign": "off",
-    "react/jsx-tag-spacing": [
-      "warn",
-      {
-        "beforeSelfClosing": "always"
-      }
-    ]
-  }
+	"parser": "babel-eslint",
+	"root": true,
+	"extends": [
+		"@jetbrains",
+		"@jetbrains/eslint-config/es6",
+		"@jetbrains/eslint-config/browser",
+		"@jetbrains/eslint-config/react",
+		"@jetbrains/eslint-config/test"
+	],
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"rules": {
+		"quotes": [
+			"error",
+			"double"
+		],
+		"consistent-return": "off",
+		"no-return-assign": "off",
+		"react/jsx-tag-spacing": [
+			"warn",
+			{
+				"beforeSelfClosing": "always"
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"windows"
+		],
+		"indent": [
+			"error",
+			"tab"
+		],
+		"react/jsx-indent-props": [
+			2,
+			"tab"
+		],
+		"react/jsx-indent": [
+			2,
+			"tab"
+		]
+	}
 }
