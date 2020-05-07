@@ -7,7 +7,12 @@ import Footer from "@jetbrains/ring-ui/components/footer/footer";
 import hubLogo from "@jetbrains/logos/hub/hub.svg";
 import PropTypes from "prop-types";
 
-import {Button, Link, Select} from "@jetbrains/ring-ui";
+import {Button, Link, QueryAssist} from "@jetbrains/ring-ui";
+import {Route} from "react-router-dom";
+
+import Display from "../display";
+import Menu from "../menu/menu";
+
 
 import appRootCss from "./app-root.module.less";
 
@@ -64,19 +69,18 @@ export default class AppRoot extends Component {
 		const state = this.state;
 		return (
 			<div className={appRootCss.viewRoot}>
-				<Header theme="dark" spaced>
+				<Header theme="dark" spaced className={appRootCss.header}>
 					<Logo
 						glyph={hubLogo}
 						size={Logo.Size.Size48}
 					/>
-					<Select
-						data={state.source}
-						label="搜索组件、方法或者正则表达式"
-						filter={{placeholder: "输入搜索条件"}}
-						selected={state.selected}
-						onSelect={this.onSelected.bind(this)}
-						className={appRootCss.search}
-					/>
+					<div style={{width: 250, paddingTop: 16}}>
+						<QueryAssist
+							dataSource={state.source}
+							theme="dark"
+							glass
+						/>
+					</div>
 					<Link
 						href="/component"
 						active={state.active === "component"}
@@ -101,7 +105,15 @@ export default class AppRoot extends Component {
 					</Tray>
 				</Header>
 				<div className="app-content">
-					{this.props.children}
+					<Route
+						path="/:type/:detail"
+						render={props => (
+							<React.Fragment>
+								<Menu {...props} />
+								<Display {...props} />
+							</React.Fragment>
+						)}
+					/>
 				</div>
 				<Footer
 					center={[{

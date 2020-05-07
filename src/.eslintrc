@@ -40,6 +40,7 @@
 		"react/jsx-indent": [
 			2,
 			"tab"
-		]
+		],
+		"max-len": "off"
 	}
 }
